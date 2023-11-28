@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class articles extends Model
@@ -19,6 +20,10 @@ class articles extends Model
     ];
     public function getPhoto_UrlAttribute($value)
     {
-        return $value??"articles/ahS0IHVeR84llMlMQTp7KIh3TEUv5WPxP1dLlCHo.jpg";
+        return $value ?? "articles/ahS0IHVeR84llMlMQTp7KIh3TEUv5WPxP1dLlCHo.jpg";
+    }
+    public function Utilisateur(): BelongsTo
+    { //
+        return $this->belongsTo(utilisateur::class, "Profile_id", "id");
     }
 }

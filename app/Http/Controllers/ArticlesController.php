@@ -22,6 +22,7 @@ class ArticlesController extends Controller
     {
         //$ListArticle = articles::paginate(2);
         $ListArticle = articles::all();
+
         //dd(Auth::id()); // get id user
         return view("Pages.Articles", compact("ListArticle"));
     }

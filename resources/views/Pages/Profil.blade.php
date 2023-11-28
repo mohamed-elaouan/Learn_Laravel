@@ -1,10 +1,10 @@
 <x-MasterPage title="Home-Page">
     <div class="container">
-        <h1>Profile Page</h1>
-
+        <h1>Profile Page : </h1><br><br>
+        <h3>Information Personnel :</h3><br><br>
         <div
             style="display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-around;gap:15px; margin-top: 10px">
-            @foreach ($ListArticle as $item)
+            @foreach ($user_uti->Articles as $item)
                 <div class="card" style="width: 18rem;">
                     {{-- ../../../storage/app/public/    {{ asset('storage/' . $item->Photo_Url) }} --}}
                     {{-- "https://picsum.photos/500/300" ---> afficher les images aleatoirement --}}
@@ -13,6 +13,7 @@
                     </td>
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->Nom }}</h5>
+                        <h5 class="card-title">User:{{ $item->Utilisateur->name }}</h5>
                         <p class="card-text" style="text-align: start"> + {{ $item->description }}</p>
                         <div class="row">
                             <p class="text-danger fw-bold">{{ $item->Prix }}dh</p>
@@ -36,6 +37,7 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
         {{-- <div>{{ $ListArticle->links() }}</div> --}}
 

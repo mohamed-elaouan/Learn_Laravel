@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class utilisateur extends Model
@@ -15,4 +16,8 @@ class utilisateur extends Model
         'PhotoURL',
         'bio',
     ];
+    public function Articles(): HasMany
+    {
+        return $this->hasMany(articles::class,"Profile_id","id");
+    }
 }

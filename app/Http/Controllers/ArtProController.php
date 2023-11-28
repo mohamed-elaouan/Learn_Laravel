@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\utulisateurRequest;
 use App\Models\articles;
+use App\Models\User;
 use App\Models\utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,10 @@ use Illuminate\Support\Facades\Hash;
 class ArtProController extends Controller
 {
     public function myArticles() {
-        $ListArticle=articles::find();
-        return view("Pages.Profil",compact("ListArticle"));
+        $user_uti=utilisateur::find(Auth::id());//->where('Profile_id',"==",Auth::id());
+        //get tout les articles de l'utilasateur Auth
+        //$Test = utilisateur::find(Auth::id())->Articles;
+        return view("Pages.Profil",compact("user_uti"));
     }
     public function Tout()
     {

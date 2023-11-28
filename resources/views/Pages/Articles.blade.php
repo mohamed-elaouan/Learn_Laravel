@@ -13,6 +13,7 @@
                     </td>
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->Nom }}</h5>
+                        <h5 class="card-title">User:{{ $item->Utilisateur->name }}</h5>
                         <p class="card-text" style="text-align: start"> + {{ $item->description }}</p>
                         <div class="row">
                             <p class="text-danger fw-bold">{{ $item->Prix }}dh</p>
